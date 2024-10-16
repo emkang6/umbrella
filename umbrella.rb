@@ -24,22 +24,22 @@ geo = result.at(0).fetch("geometry")
 
 loc = geo.fetch("location")
 
-longitude = loc.fetch("lng")
 latitude = loc.fetch("lat")
+longitude = loc.fetch("lng")
 
-pp longitude
 pp latitude
+pp longitude
 
-# pirate_weather_api_key = "3RrQrvLmiUayQ84JSxL8D2aXw99yRKlx1N4qFDUE"
+pirate_weather_api_key = "3RrQrvLmiUayQ84JSxL8D2aXw99yRKlx1N4qFDUE"
 
-# pirate_weather_url = "https://api.pirateweather.net/forecast/" + pirate_weather_api_key + "/41.8887,-87.6355"
+pirate_weather_url = "https://api.pirateweather.net/forecast/" + pirate_weather_api_key + "/#{latitude},#{longitude}"
 
-# raw_response = HTTP.get(pirate_weather_url)
+raw_response = HTTP.get(pirate_weather_url)
 
-# parsed_response = JSON.parse(raw_response)
+parsed_response = JSON.parse(raw_response)
 
-# currently_hash = parsed_response.fetch("currently")
+currently_hash = parsed_response.fetch("currently")
 
-# current_temp = currently_hash.fetch("temperature")
+current_temp = currently_hash.fetch("temperature")
 
-# puts current_temp
+puts "The current temperature is #{current_temp}."
